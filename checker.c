@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 /**
  * checker - function that check the format
  * @a: the char to e checked
@@ -13,14 +14,14 @@ int checker(char a, va_list args)
 	{'s', print_string},
 	{'\0', NULL}
 	};
-	void (*function)(va_list args);
+	int (*function)(va_list args);
 
 	for (i = 0; i < 5; i++)
 	{
 		if (a == f[i].a)
 		{
 			function = f[i].fun;
-			function(args);
+			return (function(args));
 		}
 	}
 	return (0);

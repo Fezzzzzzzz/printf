@@ -2,19 +2,20 @@
 /**
  * print_char - function prints a char
  * @args: the argument to print
- * Return: void
+ * Return: the number of characters printed
  */
-void print_char(va_list args)
+int print_char(va_list args)
 {
 char i = va_arg(args, int);
 write(1, &i, sizeof(char));
+return (i);
 }
 /**
  * print_string - function prints a string
  * @args: the argument to print
- * Return: void
+ * Return: the number of characters printed
  */
-void print_string(va_list args)
+int print_string(va_list args)
 {
 	int j = 0;
 
@@ -25,4 +26,5 @@ void print_string(va_list args)
 		write(1, &i[j], 1);
 		j++;
 	}
+	return (i);
 }

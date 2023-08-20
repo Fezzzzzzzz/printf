@@ -6,7 +6,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int i = 0;
+	int i = 0, a = 0, b = 0;
 	va_list args;
 
 	va_start(args, format);
@@ -14,13 +14,14 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			checker(format[++i], args);
+			a = checker(format[++i], args);
 		}
 		else
 		{
 			write(1, &format[i], sizeof(char));
+			b++;
 		}
 		i++;
 	}
-	return (0);
+	return (a + b);
 }
