@@ -24,13 +24,19 @@ int _printf(const char *format, ...)
 				continue;
 			}
 		}
-		if (format[i] == '%' && format[i + 1] != '\0' && format[i + 1] != ' ')
+if (format[i] == '%' && format[i + 1] != '\0' && format[i + 1] != ' ' && format[i + 1] != 'm')
 		{
 			a += checker(format[++i], args);
 		}
 		else if (format[i] == '%' && (format[i + 1] == '\0' || format[i + 1] == ' '))
 		{
 			return (-1);
+		}
+		else if (format[i] == '%' && format[i + 1] == 'm')
+		{
+			write(1, "Success", 7);
+			b += 7;
+			i++;
 		}
 		else
 		{
