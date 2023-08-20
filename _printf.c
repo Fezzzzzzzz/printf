@@ -24,11 +24,11 @@ int _printf(const char *format, ...)
 				continue;
 			}
 		}
-		if (format[i] == '%' && format[i + 1] != '\0')
+		if (format[i] == '%' && format[i + 1] != '\0' && format[i + 1] != ' ')
 		{
 			a += checker(format[++i], args);
 		}
-		else if (format[i] == '%' && format[i + 1] == '\0')
+		else if (format[i] == '%' && (format[i + 1] == '\0'|| format[i + 1] == ' '))
 		{
 			return (-1);
 		}
