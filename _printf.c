@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdlib.h>
 /**
  * _printf - function that produces output according to a format
  * @format: character string
@@ -24,5 +23,6 @@ int _printf(const char *format, ...)
 		}
 		i++;
 	}
-	exit(a + b);
+	va_end(args);
+	return (a + b);
 }
