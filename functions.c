@@ -8,7 +8,7 @@ int print_char(va_list args)
 {
 char i = va_arg(args, int);
 write(1, &i, sizeof(char));
-return (i);
+return (1);
 }
 /**
  * print_string - function prints a string
@@ -26,5 +26,11 @@ int print_string(va_list args)
 		write(1, &i[j], 1);
 		j++;
 	}
-	return (i);
+	return (--j);
+}
+int print_percent(va_list args)
+{
+	(void)(args);
+	write(1,"%", 1);
+	return (1);
 }

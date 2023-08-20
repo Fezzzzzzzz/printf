@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdlib.h>
 /**
  * _printf - function that produces output according to a format
  * @format: character string
@@ -14,7 +15,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			a = checker(format[++i], args);
+			a += checker(format[++i], args);
 		}
 		else
 		{
@@ -23,5 +24,5 @@ int _printf(const char *format, ...)
 		}
 		i++;
 	}
-	return (a + b);
+	exit(a + b);
 }

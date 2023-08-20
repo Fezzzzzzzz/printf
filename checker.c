@@ -12,6 +12,7 @@ int checker(char a, va_list args)
 	format f[] = {
 	{'c', print_char},
 	{'s', print_string},
+	{'%', print_percent},
 	{'\0', NULL}
 	};
 	int (*function)(va_list args);
