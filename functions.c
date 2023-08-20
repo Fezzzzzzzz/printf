@@ -26,7 +26,7 @@ int print_string(va_list args)
 		write(1, &i[j], 1);
 		j++;
 	}
-	return (--j);
+	return (j);
 }
 /**
  * print_percent - function prints a percent
