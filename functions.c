@@ -28,9 +28,14 @@ int print_string(va_list args)
 	}
 	return (--j);
 }
+/**
+ * print_percent - function prints a percent
+ * @args: the argument to print
+ * Return: the number of characters printed
+ */
 int print_percent(va_list args)
 {
 	(void)(args);
-	write(1,"%", 1);
+	write(1, "%", 1);
 	return (1);
 }
