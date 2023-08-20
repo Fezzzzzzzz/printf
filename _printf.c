@@ -10,8 +10,20 @@ int _printf(const char *format, ...)
 	va_list args;
 
 	va_start(args, format);
+	if(format[i] == '\0' )
+		return (-1);
 	while (format[i])
 	{
+		if (format[i] == '\\')
+		{
+			if (format[i + 1] == '\\')
+			{
+				write(1, "\\", 1);
+				i += 2;
+				b++;
+				continue;
+			}
+		}
 		if (format[i] == '%')
 		{
 			a += checker(format[++i], args);
