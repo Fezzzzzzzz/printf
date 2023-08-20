@@ -14,17 +14,14 @@ int _printf(const char *format, ...)
 		return (-1);
 	while (format[i])
 	{
-		if (format[i] == '\\')
-		{
-			if (format[i + 1] == '\\')
+			if (format[i] == '\\' && format[i + 1] == '\\')
 			{
 				write(1, "\\", 1);
 				i += 2;
 				b++;
 				continue;
 			}
-		}
-if (format[i] == '%' && format[i + 1] != '\0' && format[i + 1] != ' ' && format[i + 1] != 'm')
+		if (format[i] == '%' && format[i + 1] != '\0' && format[i + 1] != ' ' && format[i + 1] != 'm')
 		{
 			a += checker(format[++i], args);
 		}
