@@ -24,9 +24,13 @@ int _printf(const char *format, ...)
 				continue;
 			}
 		}
-		if (format[i] == '%')
+		if (format[i] == '%' && format[i + 1] != '\0')
 		{
 			a += checker(format[++i], args);
+		}
+		else if (format[i] == '%' && format[i + 1] == '\0')
+		{
+			return (-1);
 		}
 		else
 		{

@@ -7,6 +7,8 @@
 int print_char(va_list args)
 {
 char i = va_arg(args, int);
+if (!i)
+	return (1);
 write(1, &i, 1);
 return (1);
 }
@@ -21,6 +23,10 @@ int print_string(va_list args)
 
 	char *i = va_arg(args, char*);
 
+	if (!i)
+	{
+		return (write(1, "(null)", 6));
+	}
 	while (i[j] != '\0')
 	{
 		write(1, &i[j], 1);
