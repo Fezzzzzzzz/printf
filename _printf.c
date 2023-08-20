@@ -28,7 +28,7 @@ int _printf(const char *format, ...)
 		{
 			a += checker(format[++i], args);
 		}
-		else if (format[i] == '%' && (format[i + 1] == '\0'|| format[i + 1] == ' '))
+		else if (format[i] == '%' && (format[i + 1] == '\0' || format[i + 1] == ' '))
 		{
 			return (-1);
 		}
