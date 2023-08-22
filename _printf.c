@@ -14,26 +14,31 @@ int _printf(const char *format, ...)
 		return (-1);
 	while (format[i])
 	{
-		if (format[i] == '%')
+			if (format[i] == '\\' && format[i + 1] == '\\')
+			{
+				write(1, "\\", 1);
+				i += 2;
+				b++;
+				continue;
+			}
+		if (format[i] == '%' && format[i + 1] != '\0' && format[i + 1] != ' ' && format[i + 1] != 'm')
 		{
-			if (format[i + 1] != '\0' && format[i + 1] != ' ')
-			{
-				if (format[i + 1] == 'm')
-				{
-					b += write(1, "Success", 7);
-					i += 2;
-					continue;
-				}
-				a += checker(format[++i], args);
-			}
-			else if ((format[i + 1] == '\0' || format[i + 1] == ' '))
-			{
+			a += checker(format[++i], args);
+		}
+		else if (format[i] == '%' && (format[i + 1] == '\0' || format[i + 1] == ' '))
+		{
 			return (-1);
-			}
+		}
+		else if (format[i] == '%' && format[i + 1] == 'm')
+		{
+			write(1, "Success", 7);
+			b += 7;
+			i++;
 		}
 		else
 		{
-		b += write(1, &format[i], 1);
+			write(1, &format[i], 1);
+			b++;
 		}
 		i++;
 	}
