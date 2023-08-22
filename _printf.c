@@ -11,7 +11,7 @@ int _printf(const char *format, ...)
 
 	va_start(args, format);
 	if (!format)
-		b = (-1);
+		return (-1);
 	while (format[i])
 	{
 		if (format[i] == '\\')
@@ -24,13 +24,9 @@ int _printf(const char *format, ...)
 				continue;
 			}
 		}
-		if (format[i] == '%' && format[i + 1] != '\0')
+		if (format[i] == '%')
 		{
 			a += checker(format[++i], args);
-		}
-		else if (format[i] == '%' && format[i + 1] == '\0')
-		{
-			return (-1);
 		}
 		else
 		{
