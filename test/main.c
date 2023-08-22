@@ -1,8 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "main.h"
-int main()
+
+/**
+ * main - Entry point
+ *
+ * Return: 0 on success, error code otherwise
+ */
+int main(void)
 {
-	char s = 'a';
-    char* a = "alright";
- _printf("hello number %s there %% %c\n", a, s);
- return 0;   
+	int len, len2;
+
+	/* Test 1 */
+	len = _printf("%r");
+	len2 = printf("%r");
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("[1]: Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
 }
+
