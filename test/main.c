@@ -12,8 +12,8 @@ int main(void)
 	int len, len2;
 
 	/* Test 1 */
-	len = _printf("%r");
-	len2 = printf("%r");
+	len = _printf("% ");
+	len2 = printf("% ");
 	fflush(stdout);
 	if (len != len2)
 	{
@@ -21,5 +21,33 @@ int main(void)
 		fflush(stdout);
 		return (1);
 	}
+/* Test 1 */
+        len = _printf("%");
+        len2 = printf("%");
+        fflush(stdout);
+        if (len != len2)
+        {
+                printf("[1]: Lengths differ.\n");
+                fflush(stdout);
+                return (1);
+        }
+len = _printf(NULL);
+        len2 = printf(NULL);
+        fflush(stdout);
+        if (len != len2)
+        {
+                printf("[1]: Lengths differ.\n");
+                fflush(stdout);
+                return (1);
+        }
+/* Test 1 */
+        len = _printf("%s", NULL);
+        len2 = printf("%s", NULL);
+        fflush(stdout);
+        if (len != len2)
+        {
+                printf("[1]: Lengths differ.\n");
+                fflush(stdout);
+                return (1);
+        }
 }
-
